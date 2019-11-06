@@ -1,5 +1,5 @@
-# (“UW Hangouts”) Live Video Chat App
-### Team members: Harim Sanchez, Yue Lyu, Henry Lin
+# UW Hangouts: A Live Video Chat App
+#### Team members: Harim Sanchez, Yue Lyu, Henry Lin
 
 ## Project Description
 
