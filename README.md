@@ -1,16 +1,16 @@
-# UWHangouts
-
-(“UW Hangouts”) Live Video Chat App:
-Team members: Harim Sanchez, Yue Lyu, Henry Lin
+# (“UW Hangouts”) Live Video Chat App
+### Team members: Harim Sanchez, Yue Lyu, Henry Lin
 
 ## Project Description
 
 UW Hangouts is an application used for users to communicate with each other through live video feeds. This application will be geared mainly towards UW students but will also be open for the general public to make an account. This application will provide a quick and easy way to connect students to each other without requiring them to download another application to make the video call. We want to make this application because there isn’t yet an application that is geared towards student use and we believe that it would be of great use, being able to add functionality for the user, better geared towards their education.
 
 UW Hangouts is an application used for UW students to communicate with each other through live video feeds. This application could also be eventually extended for other universities and the general public to use.
+
 Why does your audience want to use your application? Please provide some sort of reasoning. 
 Reason (private video chat rooms): more focused in an academic environment for students, less distractions like facebook messenger to get work done, encourages/promotes group study sessions or group project discussions online
 Reason 2 (public video chat rooms): make UW more inclusive and have public live video chat rooms and streams/broadcasts, help students that feel disconnected/isolated on the UW campus, another way for students to connect with each other or meet other new fellow students
+
 Why do you as developers want to build this application?
 Since we are students ourselves, we wanted to create something that we could also use.
 
@@ -32,7 +32,7 @@ This video chat application will rely on Docker containers taking care of micros
 
 
 
-###API Design
+### API Design
 
 #### Endpoints
 `/v1/users` - user control 
@@ -97,7 +97,7 @@ This video chat application will rely on Docker containers taking care of micros
 
 #### Models
 
-#####Users
+##### Users
 create table if not exists users(
 	userId int not null auto_increment primary key,
 	uwId varchar(128) not null UNIQUE,
@@ -106,7 +106,7 @@ create table if not exists users(
 lastName varchar(255) not null,
 );
 
-#####Messages
+##### Messages
 create table if not exists messages(
 	messageId int not null auto_increment primary key,
 	channelId int not null,
@@ -115,7 +115,7 @@ userId int not null,
 	sendTime datetime not null,
 );
 
-#####Channels
+##### Channels
 create table if not exists channels(
 	channelId int not null auto_increment primary key,
 	channelName varchar(255) not null,
