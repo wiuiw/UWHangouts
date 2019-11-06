@@ -5,13 +5,17 @@
 
 UW Hangouts is an application used for users to communicate with each other through live video feeds. This application will be geared mainly towards UW students but will also be open for the general public to make an account. This application will provide a quick and easy way to connect students to each other without requiring them to download another application to make the video call. We want to make this application because there isn’t yet an application that is geared towards student use and we believe that it would be of great use, being able to add functionality for the user, better geared towards their education.
 
+
 UW Hangouts is an application used for UW students to communicate with each other through live video feeds. This application could also be eventually extended for other universities and the general public to use.
 
 Why does your audience want to use your application? Please provide some sort of reasoning. 
+
 Reason (private video chat rooms): more focused in an academic environment for students, less distractions like facebook messenger to get work done, encourages/promotes group study sessions or group project discussions online
+
 Reason 2 (public video chat rooms): make UW more inclusive and have public live video chat rooms and streams/broadcasts, help students that feel disconnected/isolated on the UW campus, another way for students to connect with each other or meet other new fellow students
 
 Why do you as developers want to build this application?
+
 Since we are students ourselves, we wanted to create something that we could also use.
 
 ## Technical Description
