@@ -11,7 +11,7 @@ UW Hangouts is an application used for UW students to communicate with each othe
 
 This video chat application will rely on Docker containers taking care of microservices. All the users will be able to access the application through a website handled through a domain container. 
 
-https://www.lucidchart.com/users/registerOrLogin/free?showLogin=false&pseudoEditorTitle=video+call&instructionParameter=i18nKey%23%3D%3Achart-web-controllers-invitations-document%23%40%3APN%23%3D%3Aname%23%40%3APV%23%3D%3Avideo+call
+![UW Hangouts Lucid Chart](https://i.imgur.com/UeODIY3.png)
 
 | Priority | User | Description |
 | ----------- | -------- | ------------------ |
@@ -27,8 +27,8 @@ https://www.lucidchart.com/users/registerOrLogin/free?showLogin=false&pseudoEdit
 ### API Design
 
 #### Endpoints
-`/v1/users` - user control 
-`GET`: get all users’ information
+* `/v1/users` - user control 
+	* `GET`: get all users’ information
 `200`: successfully retrieved all users
 `401`: cannot verify user’s session id or no session id is provided
 `500`: internal server error
