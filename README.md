@@ -29,61 +29,61 @@ This video chat application will rely on Docker containers taking care of micros
 #### Endpoints
 * `/v1/users` - user control 
 	* `GET`: get all users’ information
-`200`: successfully retrieved all users
-`401`: cannot verify user’s session id or no session id is provided
-`500`: internal server error
-`POST`: create a new user account
-`201`: successfully create a new user
-`401`: cannot verify user’s session id or no session id is provided
-`415`: cannot decode body or receives unsupported body
-`500`: internal server error
-`/v1/channels` - channels control - for all the chatroom in the web application
-`GET`: get all the channels that the users have joined
-`200`: successfully retrieved all the channels
-`401`: cannot verify user’s session id or no session id is provided
-`500`: internal server error
-`POST`: create a new chatroom(channel)
-`201`: successfully create a new channel 
-`401`: cannot verify user’s session id or no session id is provided
-`415`: cannot decode body or receives unsupported body
-`500`: internal server error
-`/v1/channels/:channelid` - specific channel control
-`GET`: get a specific channels by the chatid
-`200`: successfully get the channel and its information 
-`401`: cannot verify user’s session id or no session id is provided
-`404`: the channel not found
-`500`: internal server error
-`POST`: post a new message in the channel
-`201`: successfully post the new message in the channel
-`401`: cannot verify user’s session id or no session id is provided
-`415`: cannot decode body or receives unsupported body
-`500`: internal server error
-`DELETE`: delete a specific channel 
-`200`: successfully delete the channel
-`401`: cannot verify user’s session id or no session id is provided
-`404`: the channel not found
-`500`: internal server error
-`/v1/channels/:channelid/members` - manage and modify the members who joined the channel
-`GET`: get all members in the channel
-`200`: successfully get all the members information in the channel
-`401`: cannot verify user’s session id or no session id is provided
-`500`: internal server error
-`POST`: add new member to the chatroom
-`201`: successfully add the new member to the chatroom
-`401`: cannot verify user’s session id or no session id is provided
-`415`: cannot decode body or receives unsupported body
-`500`: internal server error
-`DELETE`: delete a user from the current chatroom
-`200`: successfully remove the current member from the current chatroom
-`401`: cannot verify user’s session id or no session id is provided
-`404`: the user is not found in the current chatroom
-`500`: internal server error
-`/v1/sessions` -  for authentication - user login
-`POST`: create a new session for users to log in 
-`201`: successfully created a new session
-`401`: email or password is incorrect or email does not exist
-`415`: cannot decode body or receives unsupported body
-`500`: internal server error
+		* `200`: successfully retrieved all users
+		* `401`: cannot verify user’s session id or no session id is provided
+		* `500`: internal server error
+	* `POST`: create a new user account
+		* `201`: successfully create a new user
+		* `401`: cannot verify user’s session id or no session id is provided
+		* `415`: cannot decode body or receives unsupported body
+		* `500`: internal server error
+* `/v1/channels` - channels control - for all the chatroom in the web application
+	* `GET`: get all the channels that the users have joined
+		* `200`: successfully retrieved all the channels
+		* `401`: cannot verify user’s session id or no session id is provided
+		* `500`: internal server error
+	* `POST`: create a new chatroom(channel)
+		* `201`: successfully create a new channel 
+		* `401`: cannot verify user’s session id or no session id is provided
+		* `415`: cannot decode body or receives unsupported body
+		* `500`: internal server error
+* `/v1/channels/:channelid` - specific channel control
+	* `GET`: get a specific channels by the chatid
+		* `200`: successfully get the channel and its information 
+		* `401`: cannot verify user’s session id or no session id is provided
+		* `404`: the channel not found
+		* `500`: internal server error
+	* `POST`: post a new message in the channel
+		* `201`: successfully post the new message in the channel
+		* `401`: cannot verify user’s session id or no session id is provided
+		* `415`: cannot decode body or receives unsupported body
+		* `500`: internal server error
+	* `DELETE`: delete a specific channel 
+		* `200`: successfully delete the channel
+		* `401`: cannot verify user’s session id or no session id is provided
+		* `404`: the channel not found
+		* `500`: internal server error
+* `/v1/channels/:channelid/members` - manage and modify the members who joined the channel
+	* `GET`: get all members in the channel
+		* `200`: successfully get all the members information in the channel
+		* `401`: cannot verify user’s session id or no session id is provided
+		* `500`: internal server error
+	* `POST`: add new member to the chatroom
+		* `201`: successfully add the new member to the chatroom
+		* `401`: cannot verify user’s session id or no session id is provided
+		* `415`: cannot decode body or receives unsupported body
+		* `500`: internal server error
+	* `DELETE`: delete a user from the current chatroom
+		* `200`: successfully remove the current member from the current chatroom
+		* `401`: cannot verify user’s session id or no session id is provided
+		* `404`: the user is not found in the current chatroom
+		* `500`: internal server error
+* `/v1/sessions` -  for authentication - user login
+	* `POST`: create a new session for users to log in 
+		* `201`: successfully created a new session
+		* `401`: email or password is incorrect or email does not exist
+		* `415`: cannot decode body or receives unsupported body
+		* `500`: internal server error
 
 
 
