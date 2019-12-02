@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>UW Hangouts</title>
+</head>
+<body>
+
+    <h1>UW Hangouts</h1>
+
+    <!-- Login div for login info -->
+    <div id="login">
+        <h2>Log In</h2>
+
+        <div>
+            <label for="usernameLI">Username: </label>
+            <input id="usernameLI" type="text"/>
+        </div>
+        <div>    
+            <label for="passwordLI">Password: </label>
+            <input id="passwordLI" type="password"/>
+        </div>
+
+    </div>
+
+    <!-- Signup div for signup info -->
+    <div id="signUp">
+        <h2>Sign Up</h2>
+
+        <div>
+            <label for="emailSU">Email: </label>
+            <input id="emailSU" type="text"/>
+        </div>
+        <div>
+            <label for="usernameSU">Username: </label>
+            <input id="usernameSU" type="text"/>
+        </div>
+        <div>    
+            <label for="passwordSU">Password: </label>
+            <input id="passwordSU" type="password"/>
+        </div>
+    </div>
+
+    <!-- Allows the user to choose what room to join and submit their 
+        Login or signup info -->
+    <div id="selectRoom">
+        <h2>Select Room</h2>
+        <label for="roomNumber">Type the room name:</label>
+        <input id="roomNumber" type="text">
+        <button id="GoRoomLI">Login and Enter Room</button>
+        <button id="GoRoomSU">Sign Up and Enter Room</button>
+    </div>
+
+    <div id="vcRoom" style="display:none">
+        <video id="locaVideo" autoplay muted></video>
+        <video id="remoteVideo" autoplay></video>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/app.js"></script>
+    
+</body>
+</html>
