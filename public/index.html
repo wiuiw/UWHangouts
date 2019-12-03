@@ -17,7 +17,7 @@
         </div>
 
         <!-- Login div for login info -->
-        <div id="login">
+        <form id="login">
             <h2>Log In</h2>
 
             <div>
@@ -29,10 +29,10 @@
                 <input id="passwordLI" type="password"/>
             </div>
 
-        </div>
+        </form>
 
         <!-- Signup div for signup info -->
-        <div id="signUp">
+        <form id="signUp">
             <h2>Sign Up</h2>
 
             <div>
@@ -47,7 +47,7 @@
                 <label for="passwordSU">Password: </label>
                 <input id="passwordSU" type="password"/>
             </div>
-        </div>
+        </form>
 
         <!-- Allows the user to choose what room to join and submit their 
             Login or signup info -->
@@ -62,17 +62,17 @@
         </div>
     </div>
 
-    <div id="greeting" hidden>
+    <div id="greeting" style="display: none">
 
     </div>
 
-    <div id="vcRoom" hidden>
-        <video id="locaVideo" autoplay muted></video>
+    <div id="vcRoom" style="display: none">
+        <video id="localVideo" autoplay></video>
         <video id="remoteVideo" autoplay></video>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script src="/socket.io/socket.io.js"></script>
     <script src="js/app.js"></script>
     
 </body>
