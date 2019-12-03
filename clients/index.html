@@ -9,61 +9,70 @@
 <body>
 
     <h1>UW Hangouts</h1>
+    <div id="forms">
 
-    <!-- div for errors that may pop up -->
-    <div id="errors">
+        <!-- div for errors that may pop up -->
+        <div id="errors">
+
+        </div>
+
+        <!-- Login div for login info -->
+        <div id="login">
+            <h2>Log In</h2>
+
+            <div>
+                <label for="usernameLI">Username: </label>
+                <input id="usernameLI" type="text"/>
+            </div>
+            <div>    
+                <label for="passwordLI">Password: </label>
+                <input id="passwordLI" type="password"/>
+            </div>
+
+        </div>
+
+        <!-- Signup div for signup info -->
+        <div id="signUp">
+            <h2>Sign Up</h2>
+
+            <div>
+                <label for="emailSU">Email: </label>
+                <input id="emailSU" type="text"/>
+            </div>
+            <div>
+                <label for="usernameSU">Username: </label>
+                <input id="usernameSU" type="text"/>
+            </div>
+            <div>    
+                <label for="passwordSU">Password: </label>
+                <input id="passwordSU" type="password"/>
+            </div>
+        </div>
+
+        <!-- Allows the user to choose what room to join and submit their 
+            Login or signup info -->
+        <div id="selectRoom">
+            <h2>Select Room</h2>
+            <label for="roomName">Type the room name:</label>
+            <input id="roomName" type="text">
+            <div id="submitForms">
+                <button id="goRoomLI">Login and Enter Room</button>
+                <button id="goRoomSU">Sign Up and Enter Room</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="greeting" hidden>
 
     </div>
 
-    <!-- Login div for login info -->
-    <div id="login">
-        <h2>Log In</h2>
-
-        <div>
-            <label for="usernameLI">Username: </label>
-            <input id="usernameLI" type="text"/>
-        </div>
-        <div>    
-            <label for="passwordLI">Password: </label>
-            <input id="passwordLI" type="password"/>
-        </div>
-
-    </div>
-
-    <!-- Signup div for signup info -->
-    <div id="signUp">
-        <h2>Sign Up</h2>
-
-        <div>
-            <label for="emailSU">Email: </label>
-            <input id="emailSU" type="text"/>
-        </div>
-        <div>
-            <label for="usernameSU">Username: </label>
-            <input id="usernameSU" type="text"/>
-        </div>
-        <div>    
-            <label for="passwordSU">Password: </label>
-            <input id="passwordSU" type="password"/>
-        </div>
-    </div>
-
-    <!-- Allows the user to choose what room to join and submit their 
-        Login or signup info -->
-    <div id="selectRoom">
-        <h2>Select Room</h2>
-        <label for="roomName">Type the room name:</label>
-        <input id="roomNumber" type="text">
-        <button id="goRoomLI">Login and Enter Room</button>
-        <button id="goRoomSU">Sign Up and Enter Room</button>
-    </div>
-
-    <div id="vcRoom" style="display:none">
+    <div id="vcRoom" hidden>
         <video id="locaVideo" autoplay muted></video>
         <video id="remoteVideo" autoplay></video>
     </div>
 
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
     <script src="js/app.js"></script>
     
 </body>
