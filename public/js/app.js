@@ -7,15 +7,6 @@ var error = $("#error");
 var forms = $("#forms");
 var greeting = $("#greeting");
 
-//login info
-var usernameLI = $("#usernameLI");
-var passwordLI = $("#passwordLI");
-
-//sign up info
-var emailSU = $("#emailSU");
-var usernameSU = $("#usernameSU");
-var passwordSU = $("#passwordSU");
-
 //room name and submitting info with login 
 //or sign up info
 var inputRoomName = $("#roomName");
@@ -54,7 +45,7 @@ submitRoom.click(function (){
         greeting.css("display", "block");
         greeting.append("<h2>Welcome to room " + inputRoomName.val()/* + ", " + usernameLI.val()*/);
 
-
+        
         //check if signup info exists in the users database to not have duplicate info
 
         //create the user if the info is unique and add them to the database
