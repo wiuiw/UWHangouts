@@ -4,6 +4,11 @@
 		<meta charset="utf-8">
 		<title>UW Hangouts Login/Signup</title>
 		<style>
+		
+		body {
+		color: #464646;
+		font-family: Tahoma, Geneva, sans-serif;
+		}
 
 		.tab {
 		overflow: hidden;
@@ -40,11 +45,10 @@
 		.user-form {
 			width: 300px;
 			margin: 0 auto;
-			font-family: Tahoma, Geneva, sans-serif;
 		}
 		.user-form h1 {
 			text-align: center;
-			color: #4d4d4d;
+			color: #464646;
 			font-size: 24px;
 			padding: 20px 0 20px 0;
 		}
@@ -52,14 +56,14 @@
 		.user-form input[type="text"] {
 			width: 100%;
 			padding: 15px;
-			border: 1px solid #dddddd;
+			border: 1px solid #f0f0f0;
 			margin-bottom: 15px;
 			box-sizing:border-box;
 		}
 		.user-form input[type="submit"] {
 			width: 100%;
 			padding: 15px;
-			background-color: #535b63;
+			background-color: #686868;
 			border: 0;
 			box-sizing: border-box;
 			cursor: pointer;
@@ -69,6 +73,8 @@
 		</style>
 	</head>
 	<body>
+		<h1>UW Hangouts</h1>
+		<h3>Please login to use chatrooms</h3>
 		<div class="tab">
 			<button class="tablinks" onclick="user(event, 'login')">Login</button>
 			<button class="tablinks" onclick="user(event, 'signup')">Signup</button>

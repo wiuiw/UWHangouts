@@ -5,6 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>UW Hangouts</title>
+    <style>
+            body {
+            color: #464646;
+            font-family: Tahoma, Geneva, sans-serif;
+            }
+            #submitForms {
+			width: 300px;
+            padding: 5px;
+		    }
+            input[type="submit"] {
+			width: 100%;
+			padding: 15px;
+			background-color: #686868;
+			border: 0;
+			box-sizing: border-box;
+			cursor: pointer;
+			font-weight: bold;
+			color: #ffffff;
+		    }
+            #goRoom {
+			width: 100%;
+			padding: 15px;
+			background-color: #686868;
+			border: 0;
+			box-sizing: border-box;
+			cursor: pointer;
+			font-weight: bold;
+			color: #ffffff;
+		    }
+    </style>
 </head>
 <body>
 
@@ -16,49 +46,18 @@
     </div>
 
     <div id="forms">
-
-        <!-- Login div for login info -->
-        <form id="login">
-            <h2>Log In</h2>
-
-            <div>
-                <label for="usernameLI">Username: </label>
-                <input id="usernameLI" type="text"/>
-            </div>
-            <div>    
-                <label for="passwordLI">Password: </label>
-                <input id="passwordLI" type="password"/>
-            </div>
-
-        </form>
-
-        <!-- Signup div for signup info -->
-        <form id="signUp">
-            <h2>Sign Up</h2>
-
-            <div>
-                <label for="emailSU">Email: </label>
-                <input id="emailSU" type="text"/>
-            </div>
-            <div>
-                <label for="usernameSU">Username: </label>
-                <input id="usernameSU" type="text"/>
-            </div>
-            <div>    
-                <label for="passwordSU">Password: </label>
-                <input id="passwordSU" type="password"/>
-            </div>
-        </form>
-
-        <!-- Allows the user to choose what room to join and submit their 
-            Login or signup info -->
+        <!-- Allows the user to choose what room to join -->
         <div id="selectRoom">
-            <h2>Select Room</h2>
+            <h2>Create or select a chatroom to join</h2>
             <label for="roomName">Type the room name:</label>
             <input id="roomName" type="text">
             <div id="submitForms">
-                <button id="goRoomLI">Login and Enter Room</button>
-                <button id="goRoomSU">Sign Up and Enter Room</button>
+                <button id="goRoom">Enter Chatroom</button>
+            </div>
+            <div id="submitForms">
+                <form action="logout" method="POST">
+                    <input type="submit"value ="Logout">
+                </form>
             </div>
         </div>
     </div>
