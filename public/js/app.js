@@ -19,8 +19,7 @@ var passwordSU = $("#passwordSU");
 //room name and submitting info with login 
 //or sign up info
 var inputRoomName = $("#roomName");
-var submitLIRoom = $("#goRoomLI");
-var submitSURoom = $("#goRoomSU");
+var submitRoom = $("#goRoom");
 
 //videos
 var localVideo = document.getElementById("localVideo");
@@ -43,50 +42,17 @@ var isCaller;
 
 //Socket.io server
 var socket = io();
-    
-//onclick for submitting Log in for a user into a room
-submitLIRoom.click(function (){
-    if(inputRoomName.val() === ""){
-        error.text("Please type a room name");
-    } else if(usernameLI.val() === "" || passwordLI.val() === ""){
-        error.text("Please provide all user login info");
-    } else {
-
-        roomName = inputRoomName.val();
-
-        greeting.css("display", "block");
-        greeting.append("<h2>Welcome to room " + inputRoomName.val() + ", " + usernameLI.val());
-
-        //check if log in info exists in the users database
-        
-        //if user exists create the room if it doesnt exist or create it
-        //otherwise
-
-        //join the room as that user
-
-        //make the vc div visible and hide the fields to log in or signup
-
-        socket.emit("create or join", roomName); //send message to socket server
-
-        forms.css("display", "none");
-        divVCRoom.css("display", "block");
-
-
-    }
-})
 
 //onclick for submitting sign up for a user into a room
-submitSURoom.click(function (){
+submitRoom.click(function (){
     if(inputRoomName.val() === ""){
         error.text("Please type a room name");
-    } else if(emailSU.val() === "" || usernameSU.val() === "" || passwordSU.val() === ""){
-        error.text("Please provide all user sign up info");
     } else {
 
         roomName = inputRoomName.val();
 
         greeting.css("display", "block");
-        greeting.append("<h2>Welcome to room " + inputRoomName.val() + ", " + usernameLI.val());
+        greeting.append("<h2>Welcome to room " + inputRoomName.val()/* + ", " + usernameLI.val()*/);
 
 
         //check if signup info exists in the users database to not have duplicate info

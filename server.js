@@ -1,31 +1,21 @@
 "use strict";
 
 const express = require("express");
-const fs = require("fs");
 const app = express();
-
-var options = {
-    key: fs.readFileSync("privkey.pem", "utf8"),
-    cert: fs.readFileSync("fullchain.pem", "utf8"),
-}
-
-var https = require("https").createServer(options, app);
-
-var io = require("socket.io")(https);
-const port = process.env.PORT || 443;
+var http = require("http").Server(app);
+var io = require("socket.io")(http);
+const port = process.env.PORT || 3000;
 
 var mysql = require('mysql');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
 
-
-
 var connection = mysql.createConnection({
-	host     : 'remotemysql.com',
-	user     : 'rKs50nvwUK',
-	password : '4Y3r4Da0JP',
-	database : 'rKs50nvwUK'
+	host     : 'sql3.freemysqlhosting.net',
+	user     : 'sql3314366',
+	password : 'N2axSmjqf9',
+	database : 'sql3314366'
 });
 
 global.db = connection;
@@ -52,27 +42,39 @@ app.post('/auth', function(request, response) {
 	if (username && password) {
 		connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
 			if (results.length > 0) {
+                //sets session = loggedin and sets username
 				request.session.loggedin = true;
 				request.session.username = username;
 				response.redirect('/home');
 			} else {
-				response.send('Invalid Username and/or Password!');
+                response.send('Invalid Username and/or Password!');
+                //response.end('<a href='+'/user'+'>Login/Signup</a>');
 			}			
 			response.end();
 		});
 	} else {
-		response.send('Enter your Username and Password');
+        response.send('Enter your Username and Password');
+        //response.end('<a href='+'/user'+'>Login/Signup</a>');
 		response.end();
 	}
 });
 
 app.get('/home', function(request, response) {
 	if (request.session.loggedin) {
-		response.send('Welcome back, ' + request.session.username + '!');
+		response.redirect('/');
 	} else {
-		response.send('Please login to view this page!');
+        response.redirect('/user');
 	}
 	response.end();
+});
+
+app.post('/logout', function(request, response) {
+    request.session.destroy((err) => {
+        if(err) {
+            return console.log(err);
+        }
+        response.redirect('/user');
+    });
 });
 
 app.post('/signup', function(req, response){
@@ -85,11 +87,12 @@ app.post('/signup', function(req, response){
        var sql = "INSERT INTO `accounts`(`email`,`username`, `password`) VALUES ('" + email + "','" + username + "','" + password + "')";
   
        var query = db.query(sql, function(err, result) {
-           response.send('Your account had been successfully created.');
+            response.redirect('/home');
        });
   
     } else {
          response.send('Failed to sign up');
+         //response.end('<a href='+'/user'+'>Login/Signup</a>');
          response.end();
     }
  });
@@ -141,6 +144,6 @@ io.on("connection", function(socket){
 
 });
 
-https.listen(port, () => {
+http.listen(port, () => {
     console.info("listening on %d", port)
 });
