@@ -5,9 +5,8 @@ const fs = require("fs");
 const app = express();
 
 var options = {
-    key: fs.readFileSync("/etc/letsencrypt/live/harim2000-student.me/privkey.pem", "utf8"),
-    cert: fs.readFileSync("/etc/letsencrypt/live/harim2000-student.me/fullchain.pem", "utf8"),
-    ca: fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/chain.pem', 'utf8')
+    key: fs.readFileSync("privkey.pem", "utf8"),
+    cert: fs.readFileSync("fullchain.pem", "utf8"),
 }
 
 var https = require("https").createServer(options, app);
