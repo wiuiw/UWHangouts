@@ -1,15 +1,26 @@
 "use strict";
 
 const express = require("express");
+const fs = require("fs");
 const app = express();
-var http = require("http").Server(app);
-var io = require("socket.io")(http);
-const port = process.env.PORT || 3000;
+
+var options = {
+    key: fs.readFileSync("/etc/letsencrypt/live/harim2000-student.me/privkey.pem", "utf8"),
+    cert: fs.readFileSync("/etc/letsencrypt/live/harim2000-student.me/fullchain.pem", "utf8"),
+    ca: fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/chain.pem', 'utf8')
+}
+
+var https = require("https").createServer(options, app);
+
+var io = require("socket.io")(https);
+const port = process.env.PORT || 443;
 
 var mysql = require('mysql');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
+
+
 
 var connection = mysql.createConnection({
 	host     : 'remotemysql.com',
@@ -131,6 +142,6 @@ io.on("connection", function(socket){
 
 });
 
-http.listen(port, () => {
+https.listen(port, () => {
     console.info("listening on %d", port)
 });

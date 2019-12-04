@@ -3,7 +3,7 @@
 //divs
 var divSelectRoom = $("#selectRoom");
 var divVCRoom = $("#vcRoom");
-var errors = $("#errors");
+var error = $("#error");
 var forms = $("#forms");
 var greeting = $("#greeting");
 
@@ -16,7 +16,7 @@ var emailSU = $("#emailSU");
 var usernameSU = $("#usernameSU");
 var passwordSU = $("#passwordSU");
 
-//roomnumber and submitting info with login 
+//room name and submitting info with login 
 //or sign up info
 var inputRoomName = $("#roomName");
 var submitLIRoom = $("#goRoomLI");
@@ -47,9 +47,9 @@ var socket = io();
 //onclick for submitting Log in for a user into a room
 submitLIRoom.click(function (){
     if(inputRoomName.val() === ""){
-        errors.append("<h2>Please type a room name</h2>");
+        error.text("Please type a room name");
     } else if(usernameLI.val() === "" || passwordLI.val() === ""){
-        errors.append("<h2>Please provide all user login info</h2>");
+        error.text("Please provide all user login info");
     } else {
 
         roomName = inputRoomName.val();
@@ -78,9 +78,9 @@ submitLIRoom.click(function (){
 //onclick for submitting sign up for a user into a room
 submitSURoom.click(function (){
     if(inputRoomName.val() === ""){
-        errors.append("<h2>Please type a room name</h2>");
+        error.text("Please type a room name");
     } else if(emailSU.val() === "" || usernameSU.val() === "" || passwordSU.val() === ""){
-        errors.append("<h2>Please provide all user sign up info</h2>");
+        error.text("Please provide all user sign up info");
     } else {
 
         roomName = inputRoomName.val();
@@ -123,7 +123,7 @@ socket.on('joined', function (room) {
     navigator.mediaDevices.getUserMedia(streamConstraints).then(function (stream) {
         localStream = stream;
         localVideo.srcObject = stream;
-        socket.emit('ready', roomNumber);
+        socket.emit('ready', roomName);
     }).catch(function (err) {
         console.log('An error ocurred when accessing media devices', err);
     });
@@ -149,8 +149,8 @@ socket.on("ready", function(){
                     sdp:sessionDescription,
                     room:roomName
                 })
-            }).catch(error => {
-                console.log(error);
+            }).catch(e => {
+                console.log(e);
             });
 
     }
@@ -178,8 +178,8 @@ socket.on("offer", function(event){
                     sdp:sessionDescription,
                     room:roomName
                 })
-            }).catch(error => {
-                console.log(error);
+            }).catch(e => {
+                console.log(e);
             });
 
 
@@ -202,6 +202,11 @@ socket.on("candidate", function(event){
     //store candidate
     rtcPeerConnection.addIceCandidate(candidate);
 });
+
+socket.on("full", function(room){
+    error.text("This room is currently full. Refresh and join another room")
+    greeting.css("display", "none");
+})
 
 //helps a user receive the video and audio of another user
 function onAddStream(event){
