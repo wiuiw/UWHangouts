@@ -21,8 +21,9 @@ var connection = mysql.createConnection({
 global.db = connection;
 
 //clients folder as root
-app.use(express.static("public"));
+//app.use(express.static("public"));
 
+//sessions
 app.use(session({
 	secret: 'uwhangouts',
 	resave: false,
@@ -31,6 +32,16 @@ app.use(session({
 }))
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
+
+//express routing
+app.get('/', function(request, response) {
+    if (request.session.loggedin) {
+        response.sendFile(path.join(__dirname + '/public/index.html'));
+	} else {
+        response.redirect('/user');
+        response.end();
+	}
+});
 
 app.get('/user', function(request, response) {
     if (request.session.loggedin) {
@@ -54,13 +65,11 @@ app.post('/auth', function(request, response) {
 				response.redirect('/home');
 			} else {
                 response.send('Invalid Username and/or Password!');
-                //response.end('<a href='+'/user'+'>Login/Signup</a>');
 			}			
 			response.end();
 		});
 	} else {
         response.send('Enter your Username and Password');
-        //response.end('<a href='+'/user'+'>Login/Signup</a>');
 		response.end();
 	}
 });
@@ -98,7 +107,6 @@ app.post('/signup', function(req, response){
   
     } else {
          response.send('Failed to sign up');
-         //response.end('<a href='+'/user'+'>Login/Signup</a>');
          response.end();
     }
  });
