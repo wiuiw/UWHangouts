@@ -33,7 +33,12 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
 app.get('/user', function(request, response) {
-	response.sendFile(path.join(__dirname + '/public/user.html'));
+    if (request.session.loggedin) {
+        response.redirect('/');
+        response.end();
+	} else {
+        response.sendFile(path.join(__dirname + '/public/user.html'));
+	}
 });
 
 app.post('/auth', function(request, response) {
@@ -43,6 +48,7 @@ app.post('/auth', function(request, response) {
 		connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
 			if (results.length > 0) {
                 //sets session = loggedin and sets username
+                console.log(request.sessionID);
 				request.session.loggedin = true;
 				request.session.username = username;
 				response.redirect('/home');
