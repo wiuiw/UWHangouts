@@ -27,6 +27,34 @@ var connection = mysql.createConnection({
 
 global.db = connection;
 
+function handleDisconnect() {
+    connection = mysql.createConnection({
+        host     : 'sql3.freemysqlhosting.net',
+        user     : 'sql3314366',
+        password : 'N2axSmjqf9',
+        database : 'sql3314366'
+    }); 
+                                                    
+  
+    connection.connect(function(err) {              
+        if(err) {                                     
+            console.log('error when connecting to db:', err);
+            setTimeout(handleDisconnect, 2000); 
+        }                                     
+    });                                     
+                                            
+    connection.on('error', function(err) {
+        console.log('db error', err);
+        if(err.code === 'PROTOCOL_CONNECTION_LOST') { 
+            handleDisconnect();                         
+        } else {                                      
+            throw err;                                  
+        }
+    });
+}
+  
+handleDisconnect();
+
 //clients folder as root
 app.use('/home', express.static(path.join(__dirname, 'public')));
 
@@ -166,6 +194,8 @@ io.on("connection", function(socket){
 
 
 });
+
+
 
 https.listen(port, () => {
     console.info("listening on %d", port)
