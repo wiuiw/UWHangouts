@@ -34,6 +34,11 @@
 			font-weight: bold;
 			color: #ffffff;
 		    }
+			video{
+				margin-left: 50vw;
+  				transform: translate(-50%);
+  				border: 10px outset #ddd;
+			}
     </style>
 </head>
 <body>
@@ -66,9 +71,16 @@
 
     </div>
 
-    <div id="vcRoom" style="display: none">
-        <video id="localVideo" autoplay muted playsinline></video>
-        <video id="remoteVideo" autoplay playsinline></video>
+	<div id="vcRoom" style="display: none">
+		<h3>Local Camera</h3>
+		<video id="localVideo" autoplay muted playsinline></video>
+		<h3>Remote Camera</h3>
+		<video id="remoteVideo" autoplay playsinline></video>
+		<div id="submitForms">
+			<form action="logout" method="POST">
+				<input type="submit"value ="Logout">
+			</form>
+		</div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
