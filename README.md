@@ -1,4 +1,4 @@
-# UW Hangouts: A Live Video Chat App
+# UW Hangouts: A Cross-platform Live Video Chat App
 #### Team members: Harim Sanchez, Henry Lin
 
 ## Project Description
