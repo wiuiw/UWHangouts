@@ -1,5 +1,5 @@
 # UW Hangouts: A Live Video Chat App
-#### Team members: Harim Sanchez, Yue Lyu, Henry Lin
+#### Team members: Harim Sanchez, Henry Lin
 
 ## Project Description
 
@@ -9,7 +9,7 @@ UW Hangouts is an application used for UW students to communicate with each othe
 
 ### Infrastructure
 
-This video chat application will rely on Docker containers taking care of microservices. All the users will be able to access the application through a website handled through a domain container. 
+This video chat application will rely on Docker containers taking care of microservices. All the users will be able to access the application through a website handled through a domain container. We are using NodeJS, ExpressJS for routing, Express Session to handle user sessions, MySQL database container for storing user account information, and WebRTC API for video chatroom functionality.
 
 ![UW Hangouts Lucid Chart](https://i.imgur.com/UeODIY3.png)
 
@@ -19,7 +19,6 @@ This video chat application will rely on Docker containers taking care of micros
 | P0 | As a student | I want to be able to create an account and log into it |
 | P1 | As a student | I want to be able to send text messages back and forth between other students |
 | P2 | As a student | I want to be able to send other people invitations to join in my phone call through a link |
-
 
 
 
