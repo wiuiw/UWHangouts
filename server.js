@@ -21,7 +21,7 @@ var connection = mysql.createConnection({
 global.db = connection;
 
 //clients folder as root
-//app.use(express.static("public"));
+app.use('/home', express.static(path.join(__dirname, 'public')));
 
 //sessions
 app.use(session({
@@ -36,7 +36,9 @@ app.use(bodyParser.json());
 //express routing
 app.get('/', function(request, response) {
     if (request.session.loggedin) {
-        response.sendFile(path.join(__dirname + '/public/index.html'));
+        response.redirect('/home');
+        response.end();
+        //response.sendFile(path.join(__dirname + '/index.html'));
 	} else {
         response.redirect('/user');
         response.end();
@@ -83,7 +85,7 @@ app.get('/home', function(request, response) {
 	response.end();
 });
 
-app.post('/logout', function(request, response) {
+app.post('/home/logout', function(request, response) {
     request.session.destroy((err) => {
         if(err) {
             return console.log(err);

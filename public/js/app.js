@@ -45,7 +45,7 @@ submitRoom.click(function (){
         greeting.css("display", "block");
         greeting.append("<h2>Welcome to room " + inputRoomName.val()/* + ", " + usernameLI.val()*/);
 
-        
+
         //check if signup info exists in the users database to not have duplicate info
 
         //create the user if the info is unique and add them to the database
