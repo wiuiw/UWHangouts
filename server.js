@@ -2,9 +2,16 @@
 
 const express = require("express");
 const app = express();
-var http = require("http").Server(app);
-var io = require("socket.io")(http);
-const port = process.env.PORT || 3000;
+var fs = require("fs");
+
+var options = {
+    key: fs.readFileSync("privkey.pem", "utf8"),
+    cert: fs.readFileSync("fullchain.pem", "utf8"),
+}
+
+var https = require("https").createServer(options, app);
+var io = require("socket.io")(https);
+const port = process.env.PORT || 443;
 
 var mysql = require('mysql');
 var session = require('express-session');
@@ -160,6 +167,6 @@ io.on("connection", function(socket){
 
 });
 
-http.listen(port, () => {
+https.listen(port, () => {
     console.info("listening on %d", port)
 });
