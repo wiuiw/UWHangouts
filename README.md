@@ -9,7 +9,7 @@ UW Hangouts is an application used for UW students to communicate with each othe
 
 ### Infrastructure
 
-This video chat application will rely on Docker containers taking care of microservices. All the users will be able to access the application through a website handled through a domain container. We are using NodeJS, ExpressJS for routing, Express Session to handle user sessions, MySQL database container for account information storage, and WebRTC for video chatroom functionality.
+This video chat application will rely on Docker containers taking care of microservices. All the users will be able to access the application through a website handled through a domain container. We are using NodeJS, ExpressJS for routing, Express Session to handle user sessions, MySQL database container for storing user account information, and WebRTC API for video chatroom functionality.
 
 ![UW Hangouts Lucid Chart](https://i.imgur.com/UeODIY3.png)
 
